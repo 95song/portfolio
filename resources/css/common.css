@@ -1,0 +1,89 @@
+* {
+  font-family: 'Pretendard', sans-serif;
+   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 커서 따라다니는 동그라미 스타일 */
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background-color: #FF3D32;
+  opacity: 0.3;
+  border-radius: 50%;
+  pointer-events: none; /* 클릭 이벤트 통과 (필수) */
+  z-index: 9999;
+  transform: translate(-50%, -50%); /* 중심점 맞춤 */
+}
+/* 컨셉 1: 크기 확대 + 투명도 증가 */
+.cursor-follower.hover-concept-1 {
+  width: 65px;
+  height: 65px;
+  background-color: #FF3D32;
+  opacity: 0.3;
+  mix-blend-mode: normal;
+  transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+}
+
+h1{
+    font-size: unset;
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+
+.section{
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Pretendard', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  background-color: #e9e9e7;
+}
+
+.svg-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #e9e9e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#cycloidSvg {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  overflow: visible;
+}
+
+/* SVG Path 기본 스타일 */
+.cycloid-path {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke; /* 축소/확대 시 선 굵기 유지 */
+}
+
+
+
+.svg-container.line svg {
+  width:50%;
+  max-height:50%;
+  overflow: visible;
+}
