@@ -38,7 +38,6 @@ p{
 }
 .fullpage{
   width: 100%;
-  overflow: hidden;
 }
 .section{
     box-sizing: border-box;
@@ -46,9 +45,8 @@ p{
 
 html,
 body {
-  /* height: 100%;
-  overflow: hidden; */
   font-family: 'Pretendard', sans-serif;
+  height: auto;
 }
 
 body {
