@@ -15,6 +15,7 @@
 
 <!-- 기본 css -->
 <link rel="stylesheet" href="resources/css/common.css">
+<link rel="stylesheet" href="resources/css/profile.css">
 <link rel="stylesheet" type="text/css" href="resources/css/menu.css">
 <link rel="stylesheet" type="text/css" href="resources/css/jauery.fullpage.css">
 <link rel="stylesheet" href="resources/css/swiper.min.css"> 
@@ -29,9 +30,6 @@
 <!-- 1. jQuery를 먼저 로드 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- 2. fullPage 필수 파일들 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/jquery.fullpage.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.7/vendors/scrolloverflow.min.js"></script>
 
 <!-- 3. 그 다음 나머지 스크립트들 -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
@@ -188,12 +186,60 @@ document.addEventListener('DOMContentLoaded', () => {
             
 			<div class="profile_wrap">
                 <div class="profile">
-                    <div class="profile-title">
-                        <div class="svg-container">
-                          <svg id="cycloidSvg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-                            <!-- GSAP 스크립트에 의해 원형 path들이 동적으로 생성 및 제어됩니다 -->
-                          </svg>
+                    <div class="profile-main">
+                        <div class="profile-title">
+                            <span>Dots<span class="red">.</span></span>
+                            <span>Lines<span class="red">-</span></span>
+                            <span>Connections<span class="red">◇</span></span>
+                            <P>점과 선을 넘어, 사용자의 마음과 화면을 잇습니다.</P>
                         </div>
+
+                        <div class="profile-coment">
+                            <div class="about-coment scrollEffect">
+                                <h1 class="coment-head">
+                                    점(Dots)
+                                </h1>
+                                <p class="coment-body">
+                                    <span>점은 문제를 해결하기 전 마주하는</span>
+                                    <span>파편화된 정보와 개별적인 요소들입니다.</span>
+                                </p>
+                                <div class="svg-container">
+                                    <svg id="cycloidSvg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="about-coment scrollEffect">
+                                <h1 class="coment-head">
+                                    선(Lines)
+                                </h1>
+                                <p class="coment-body">
+                                    <span>선은 흩어진 점들을 이어 맥락을 만들고</span>
+                                    <span>사용자가 자연스럽게 이동할 수 있는 동선을 설계하는 일입니다.</span>
+                                </p>
+                                <div class="svg-container">
+                                    <svg id="linesCodePenSvg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="linesCodePenGroup"></g>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="about-coment scrollEffect">
+                                <h1 class="coment-head">
+                                    연결(Connections)
+                                </h1>
+                                <p class="coment-body">
+                                    <span>연결은 선들이 모여 입체적인 경험이 되고,</span>
+                                    <span>제품과 사용자가 깊은 관계를 맺으며 완성되는 단계입니다.</span>
+                                </p>
+                                <div class="svg-container">
+                                   <svg id="connectionsCodePenSvg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                                        <g id="connectionsCodePenGroup"></g>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
 		    </div>
@@ -202,68 +248,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-		<!-- <div class="section" id="section2">
-  
+		<section class="section" id="section2">
             <div class="profile_wrap">
                 <div class="profile">
-                    <div class="profile-title">
-                        <div class="svg-container line">
-                          <svg viewBox="0 0 10 10" fill="none" opacity="0">
-  <linearGradient id="grad">
-    <stop offset="9%" stop-color="rgba(29,30,34,.9)" />
-    <stop offset="30%" stop-color="rgba(29,30,34,0)" />
-    <stop offset="68%" stop-color="rgba(29,30,34,0.5)" />
-    <stop offset="91%" stop-color="rgba(29,30,34,.8)" />
-  </linearGradient>
-
-  <g>
-    <path stroke="#ddd" stroke-width="0.02" d="M5,1 9,8 1,8z"/>
-  </g>
-  <rect fill="url(#grad)" width="11" height="11"/>
-</svg>
+                    <div class="profile-middle">
+                        <div class="profile-title">
+                            <span>Dots<span class="red">.</span></span>
+                            <span>Lines<span class="red">-</span></span>
+                            <span>Connections<span class="red">◇</span></span>
+                            <P>점과 선을 넘어, 사용자의 마음과 화면을 잇습니다.</P>
                         </div>
                     </div>
                 </div>
 		    </div>
 
-        </div> -->
-
-        	<section class="section fp-auto-height" id="footer">
-
-            
-<div class="footer"> 
-                
-    <div>	
-        <div>
-            <div class="footer_left">
-                <ul>
-                    <li>
-                        <a href="" target="_blank">서비스이용약관</a>
-                    </li>
-                    <li>
-                        <a href="" target="_blank">개인정보처리방침</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="footer_info">
-                <p>홈페이지에 사용된 일러스트 및 이미지는 소비자의 이해를 돕기 위한 것으로<br> 실제와 차이가 있으며 설계 및 개발계획 관련 내용은 인허가 과정 및 <br class="mo">해당기관 또는 지자체의 사정에 따라 변경될 수 있습니다</p>
-            </div>
-            <h6>
-                © 2025 NINE BANPO .ALL RIGHTS RESERVED
-            </h6>
-        </div>
-        <div>
-            <div class="footer_right">
-                <div>
-                    <img src="resources/img/common/logo-3.png" alt="나인 반포 로고">
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-		</section>  
-
+        </section>
 
 
 
