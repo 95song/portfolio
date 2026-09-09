@@ -1,13 +1,43 @@
-.profile-main{
+.section{
   position: relative;
+  padding-bottom: 19.525rem;
+}
+#section1{
+  padding-bottom: 25.8457rem;
+}
+#section2{
+  /* padding-top: 30rem; */
+}
+#is-fixed1{
+  padding-bottom: 28.8457rem;
+}
+.profile-main{
   padding: 0 5.25rem;
 }
 
 .profile-title{
-  position: fixed;
+  position: absolute;
   width: 44.48vw;
   top:30%;
+  left: 5.25rem;
   color: #111111;
+  z-index: 10;
+  transition: transform 0.1s linear; /* 스크롤 움직임 동기화 */
+}
+
+.profile-title.is-fixed {
+  position: fixed !important;
+  top: 30% !important;
+  left: 5.25rem; /* 기존 layout 간격에 맞게 조정 */
+  width: 44.48vw;
+}
+
+.profile-title.is-absolute-bottom {
+  position: absolute !important;
+  top: auto !important;
+  bottom: 0 !important;
+  left: 5.25rem !important;
+  width: 44.48vw;
 }
 
 .profile-title span,
@@ -154,12 +184,236 @@
 
 .profile-middle{
   position: relative;
-  padding: 0 5.25rem;
 }
 
 .profile-middle .profile-title {
-  position: relative; /* fixed 해제 */
   top: auto;          /* top 30% 해제 */
   width: 100%;
   color: #111111;
+}
+
+/************* 프로필 히스토리 */
+
+
+.history-list {
+  position: relative;
+  padding-top: 8.7rem;
+  padding-right: 5.25rem;
+  float: right;
+  width: 50%;
+  margin-bottom: 15rem;
+  z-index: 999;
+}
+
+.history-list:last-of-type {
+  padding-bottom: 0;
+}
+.history-list::before {
+  content: "";
+  position: absolute;
+  top: 3.4375rem; /* 55px */
+  width: 0.625rem; /* 10px */
+  height: 0.625rem; /* 10px */
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #ff3d3285;
+  z-index: 1;
+  transform: translateX(-50%);
+}
+
+.history-list::after {
+  content: "";
+  position: absolute;
+  top: 3.0625rem; /* 49px */
+  width: 1.375rem; /* 22px */
+  height: 1.375rem; /* 22px */
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #ff3d3285;
+  border: 0.0625rem solid #ff3d3285; /* 1px */
+  transform: translateX(-50%);
+}
+
+.history-list > li {
+  text-align: left;
+  position: relative;
+  width: calc(100% - 4.375rem); /* 70px */
+  margin-left: auto;
+  padding-bottom: 4.875rem; /* 110px */
+}
+
+.history-list > li.on::before {
+  height: 100%;
+  left: -4.4375rem;
+}
+
+.history-list > li::before {
+  content: '';
+  position: absolute;
+  top: 0.875rem; /* 14px */
+  left: -4.375rem; /* -70px */
+  width: 0.125rem; /* 2px */
+  height: 0;
+  background: #ff3d3285;
+  transition: 0.5s;
+}
+
+.history-list > li:first-of-type::before {
+  height: 0;
+  top: -4.375rem; /* -70px */
+}
+
+.history-list > li:nth-of-type(2n)::before {
+  left: -4.4375rem; /* -71px */
+}
+
+.history-list > li > span {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  font-weight: bold;
+  font-size: 1.5rem; /* 24px */
+  color: #111111;
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.history-list > li > span::before {
+  content: "";
+  position: absolute;
+  top: 0.6875rem; /* 11px */
+  left: -4.6875rem; /* -75px */
+  width: 0.625rem; /* 10px */
+  height: 0.625rem; /* 10px */
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #ff3d3285;
+  z-index: 1;
+}
+
+.history-list > li > span::after {
+  content: "";
+  position: absolute;
+  top: 0.3125rem; /* 5px */
+  left: -5.0625rem; /* -81px */
+  width: 1.375rem; /* 22px */
+  height: 1.375rem; /* 22px */
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #ff3d3285;
+  border: 0.0625rem solid #ff3d3285; /* 1px */
+  transform: scale(0);
+  transition: 0.4s;
+}
+
+.history-list > li > ul > li {
+  padding-left: 2.5rem; /* 40px */
+  position: relative;
+  font-size: 1.1875rem; /* 19px */
+  margin-bottom: 1rem; /* 16px */
+  vertical-align: middle;
+}
+
+.history-list > li > ul > li > span {
+  position: absolute;
+  top: 0.0625rem; /* 1px */
+  left: 0;
+  font-weight: 500;
+  font-size: 1.1875rem; /* 19px */
+  color: #111111;
+  vertical-align: middle;
+}
+ul:after {
+  clear: both;
+  display: block;
+  content: '';
+}
+.history-list>li.on:first-of-type::before {
+  height: calc(100% + 84px);
+}
+.history-list>li.on>span::after {
+  transform: scale(1);
+}
+@media (max-width: 2500px) {
+  .history-list>li>ul>li {
+    word-break: keep-all;
+  }
+}
+
+/* 꺾임선 기본 위치 및 스타일 */
+.history-list > li > .line-turn {
+  position: absolute;
+  bottom: 0;
+  left: -4.375rem; /* -70px 위치 */
+  width: 0;
+  height: 0.125rem; /* 2px 가로선 */
+  background: #ff3d3285;
+  transition: width 0.5s ease;
+  pointer-events: none;
+}
+
+/* 왼쪽 끝에서 아래로 떨어지는 세로선 확장 */
+.history-list > li > .line-turn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 0.125rem; /* 2px */
+  height: 0;
+  background: #ff3d3285;
+  transition: height 0.5s ease 0.5s; /* 가로선이 다 그어진 후 0.5초 뒤 아래로 실행 */
+}
+
+/* 활성화(on) 되었을 때 선 이동 효과 */
+.history-list > li.on > .line-turn {
+  margin-bottom: -0.89rem;
+  width: 100%; /* 왼쪽으로 그려질 가로 길이 (필요에 맞게 조정 가능) */
+  /* left: calc(-4.375rem - 30vw);  */
+  /* 왼쪽 방향으로 늘어남 */
+}
+.history-list > li > span.line-turn::before{
+  display: none;
+}
+.history-skill{
+  margin-top: 10rem;
+  text-align: right !important;
+  margin-left: 0 !important;
+  padding-right: 4.4375rem;
+  padding-bottom: 0 !important;
+}
+.history-skill > ul{
+  position: relative;
+  width: 11rem;
+  left: calc(100% - 6.923rem);
+}
+.history-list > li.on > .line-turn::after {
+  height: 11rem; /* 아래로 계속 이어지는 수직선 길이 */
+}
+.history-list > li.history-skill:nth-of-type(2n)::before {
+  left: calc(100%);
+}
+.history-list > li > span.history-skill{
+  margin-bottom: 2.2rem !important;
+}
+.history-list > li.history-skill > span::before{
+  display: none;
+}
+.history-list > li.history-skill > span::after{
+  left: 6.33rem;
+}
+.history-list > li.history-skill > ul > li{
+  width: 11rem;
+  text-align: left;
+}
+
+.history-list > li.history-skill > ul > li{
+  margin-bottom: 2.2rem;
+}
+
+
+/******* 포트폴리오 */
+.profile-bottom{
+  position: relative;
+}
+.profile-port{
+  position: absolute;
 }

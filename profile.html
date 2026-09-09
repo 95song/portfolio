@@ -95,10 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </h1>
                  <div class="gnb"> 
                     <ul>
-                        
-                        <li><a href="index.html" class="depth1">PORTPOLIO<span class="line"></span></a>
-                        </li>                                 
-                                
+                        <li>
+                            <a href="index.html" class="depth1">PORTPOLIO<span class="line"></span></a>
+                        </li>                                     
                     </ul>
     
                 </div>
@@ -181,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			<div class="profile_wrap">
                 <div class="profile">
                     <div class="profile-main">
-                        <div class="profile-title">
+                        <div class="profile-title" id="is-fixed1">
                             <span>Dots<span class="red">.</span></span>
                             <span>Lines<span class="red">-</span></span>
                             <span>Connections<span class="red">◇</span></span>
@@ -246,16 +245,125 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="profile_wrap">
                 <div class="profile">
                     <div class="profile-middle">
-                        <div class="profile-title">
-                            <span>Dots<span class="red">.</span></span>
-                            <span>Lines<span class="red">-</span></span>
-                            <span>Connections<span class="red">◇</span></span>
-                            <P>점과 선을 넘어, 사용자의 마음과 화면을 잇습니다.</P>
+                        <div class="profile-title" id="is-fixed2">
+                            <span>Song</span>
+                            <span>Eunsun</span>
+                            <span>Designer</span>
+                            <P>흩어진 점을 발견하고, 매끄러운 선을 그리며,<br>의미 있는 연결을 만들어내는 디자이너</P>
                         </div>
+                    </div>
+                    <div class="profile-history">
+                        <ul class="history-list">
+                            <li>
+                                <span>2013</span>
+                                <ul>
+                                    <li>
+                                        <span>02</span>
+                                        선화예술고등학교 졸업
+                                    </li>
+                                </ul>
+                            </li><li>
+                                <span>2020</span>
+                                <ul>
+                                    <li>
+                                        <span>09</span>
+                                        컬러리스트산업기사 취득
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>2021</span>
+                                <ul>
+                                    <li>
+                                        <span>02</span>
+                                        한성대 디자인 아트교육원 졸업
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>2021</span>
+                                <ul>
+                                    <li>
+                                        <span>03</span>
+                                        (주)NCL 입사
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="line-turn"></span>
+                            </li>
+                            <li class="history-skill">
+                                <span>스킬</span>
+                                <ul>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-1.png"> </span>
+                                        Illustrator
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-2.png"> </span>
+                                        Potoshop
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-3.png"> </span>
+                                        XD
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-4.png"> </span>
+                                        Indesign
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-5.png"> </span>
+                                        Figma
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-6.png"> </span>
+                                        HTML
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-7.png"> </span>
+                                        CSS
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-8.png"> </span>
+                                        JS
+                                    </li>
+                                    <li>
+                                        <span><img src="/resources/img/common/skill-9.png"> </span>
+                                        Notion
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
 		    </div>
 
+            <script>$(function(){
+	$(window).scroll(function(){
+		var windowH = $(this).height();
+		var percentage = windowH * 80 / 100;
+		var windowS = $(this).scrollTop() + percentage 
+		$(".history-list > li").each(function(){
+			var thisTop = $(this).offset().top;						
+			if (thisTop < windowS) {
+				$(this).addClass("on");
+			}
+		});
+	})
+})</script>
+        </section>
+
+        <section class="section" id="section3">
+            <div class="profile_wrap">
+                <div class="profile">
+                    <div class="profile-bottom">
+                        <div class="profile-port">
+                            <span>Portpolio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
 

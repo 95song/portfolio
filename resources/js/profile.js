@@ -218,3 +218,51 @@ var loader = {
 $(document).ready(function() {
   loader.init();
 });
+
+// -------------------------------------------------------------
+// fixed 조정용
+// -------------------------------------------------------------
+
+$(window).on('scroll resize', function() {
+  var scrollTop = $(window).scrollTop();
+  var windowHeight = $(window).height();
+
+  // 1. Section 1 타이틀 제어
+  var $sec1 = $('#section1');
+  var $title1 = $('#is-fixed1');
+
+  if ($sec1.length && $title1.length) {
+    var sec1Top = $sec1.offset().top;
+    var sec1Height = $sec1.outerHeight();
+    var targetTop = windowHeight * 0.3; // 화면 30% 지점
+
+    var fixedStart = sec1Top - targetTop;
+    var fixedEnd = sec1Top + sec1Height - $title1.outerHeight() - targetTop;
+
+    if (scrollTop < fixedStart) {
+      // 고정 시작 전: absolute 기본 위치
+      $title1.removeClass('is-fixed is-absolute-bottom');
+    } else if (scrollTop >= fixedStart && scrollTop < fixedEnd) {
+      // 화면 30% 위치에 fixed 고정
+      $title1.addClass('is-fixed').removeClass('is-absolute-bottom');
+    } else {
+      // Section 1 영역이 끝나면 하단으로 자연스럽게 밀려 올라감
+      $title1.removeClass('is-fixed').addClass('is-absolute-bottom');
+    }
+  }
+
+  // 2. Section 2 타이틀 제어 (#section2 스크롤 시 화면 중앙 30%에 도달하면 fixed로 변경)
+  var $sec2 = $('#section2');
+  var $title2 = $('#is-fixed2');
+
+  if ($sec2.length && $title2.length) {
+    var sec2Top = $sec2.offset().top;
+    var sec2Target = sec2Top - (windowHeight * 0.3); // 화면 중앙 30% 위치 연산
+
+    if (scrollTop >= sec2Target) {
+      $title2.addClass('is-fixed');
+    } else {
+      $title2.removeClass('is-fixed');
+    }
+  }
+}).trigger('scroll');
