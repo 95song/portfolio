@@ -1,0 +1,165 @@
+.profile-main{
+  position: relative;
+  padding: 0 5.25rem;
+}
+
+.profile-title{
+  position: fixed;
+  width: 44.48vw;
+  top:30%;
+  color: #111111;
+}
+
+.profile-title span,
+.profile-title p {
+  opacity: 0;
+  animation-name: slideInLeft;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards; /* 애니메이션 완료 후 마지막 상태(opacity:1, transform:0) 유지 */
+}
+
+/* 순차적으로 등장하게 만드는 시차(delay) 설정 */
+.profile-title span:nth-child(1) { animation-delay: 0.1s; }
+.profile-title span:nth-child(2) { animation-delay: 0.2s; }
+.profile-title span:nth-child(3) { animation-delay: 0.4s; }
+.profile-title p                 { animation-delay: 0.55s; }
+
+/* 왼쪽에서 들어오는 키프레임 정의 */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-60px); /* 왼쪽 60px 지점에서 출발 */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);     /* 원래 위치로 복귀 */
+  }
+}
+
+.profile-title span{
+  display: block;
+  font-size: 5vw;
+  line-height: 5.5vw;
+  font-weight: 700;
+}
+.profile-title .red{
+  color: #FF3D32;
+  display: unset;
+}
+.profile-title p{
+  margin-top: 1.8vw;
+  font-size: 1.8vw;
+}
+
+.profile-coment{
+  padding-left: 57.39vw;
+  box-sizing: border-box;
+}
+
+.about-coment{
+  margin-bottom: 6.3vw;
+}
+.about-coment:last-child{
+  margin-bottom: 0;
+}
+.about-coment:nth-child(1) .coment-head{
+  padding-top: 100vh;
+}
+
+.scrollEffect {
+    opacity: 0;
+}
+.scrollEffect.active {
+    animation-name: cssAnimation-scrollEffect;
+    animation-duration: 1.0s;
+    animation-timing-function: cubic-bezier(0, 0, 0.01, 1.07);
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+}
+
+@keyframes cssAnimation-scrollEffect{
+  0%{
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.svg-container {
+  width: 100%;
+  background-color: #e9e9e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.coment-head{
+  font-size: 1.88vw;
+  font-weight: 700;
+  color: #111111;
+}
+.coment-body{
+  font-size: 1.25vw;
+}
+.coment-body span{
+  display: block;
+}
+
+#cycloidSvg {
+  width: 30rem;
+  max-width: 600px;
+  height: auto;
+  overflow: visible;
+}
+
+/* SVG Path 기본 스타일 */
+.cycloid-path {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke; /* 축소/확대 시 선 굵기 유지 */
+}
+
+#linesCodePenSvg {
+  width: 30rem;
+  max-width: 600px;
+  height: auto;
+  overflow: visible;
+}
+
+#linesCodePenGroup path {
+  fill: none;
+  stroke: #111111;
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Connections(연결 - 물결) 스타일 */
+#connectionsCodePenSvg{
+  width: 30rem;
+  max-width: 600px;
+  height: auto;
+  overflow: visible;
+}
+#connectionsCodePenSvg path {
+  fill: none;
+  stroke: #111111;
+}
+
+
+.profile-middle{
+  position: relative;
+  padding: 0 5.25rem;
+}
+
+.profile-middle .profile-title {
+  position: relative; /* fixed 해제 */
+  top: auto;          /* top 30% 해제 */
+  width: 100%;
+  color: #111111;
+}

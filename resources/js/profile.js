@@ -1,96 +1,220 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const svg = document.getElementById("cycloidSvg");
-  if (!svg) return;
+  // -------------------------------------------------------------
+  // 1. 점(Dots) - Cycloid 원형 애니메이션 (#cycloidSvg)
+  // -------------------------------------------------------------
+  const cycloidSvgs = document.querySelectorAll(".cycloidSvg, #cycloidSvg");
 
-  const lineCount = 45;      // SVG 정원 선 개수
-  const center = 400;        // SVG viewBox 기준 중심점 (400, 400)
-  const baseRadius = 120;    // 기본 반지름
-  const paths = [];
+  cycloidSvgs.forEach((svg) => {
+    if (!svg || svg.children.length > 0) return;
 
-  // 1. SVG 동적 Path 생성
-  for (let i = 0; i < lineCount; i++) {
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    
-    // 투명도 레이어드 설정
-    const opacity = 0.12 + (i / lineCount) * 0.45;
-    path.setAttribute("class", "cycloid-path");
-    path.setAttribute("stroke-opacity", opacity);
-    
-    svg.appendChild(path);
-    paths.push({
-      element: path,
-      radiusOffset: i * 2.2,
-      phaseOffset: i * 0.04
-    });
-  }
+    const lineCount = 45;
+    const center = 400;
+    const baseRadius = 120;
+    const paths = [];
 
-  // 2. 정원 베지어 곡선(d 속성) 계산 함수
-  function createCirclePathD(cx, cy, r, time, phase) {
-    // 정원을 이루는 4개의 베지어 제어점 수식
-    const wave = Math.sin(time + phase) * 3.5;
-    const currentR = r + wave;
-    const k = currentR * 0.552284749831; // 원을 베지어로 그리기 위한 상수 (Magic Number)
+    for (let i = 0; i < lineCount; i++) {
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      const opacity = 0.12 + (i / lineCount) * 0.45;
+      path.setAttribute("class", "cycloid-path");
+      path.setAttribute("stroke-opacity", opacity);
 
-    return `
-      M ${cx} ${cy - currentR}
-      C ${cx + k} ${cy - currentR}, ${cx + currentR} ${cy - k}, ${cx + currentR} ${cy}
-      C ${cx + currentR} ${cy + k}, ${cx + k} ${cy + currentR}, ${cx} ${cy + currentR}
-      C ${cx - k} ${cy + currentR}, ${cx - currentR} ${cy + k}, ${cx - currentR} ${cy}
-      C ${cx - currentR} ${cy - k}, ${cx - k} ${cy - currentR}, ${cx} ${cy - currentR}
-      Z
-    `;
-  }
+      svg.appendChild(path);
+      paths.push({
+        element: path,
+        radiusOffset: i * 2.2,
+        phaseOffset: i * 0.04
+      });
+    }
 
-  // 3. GSAP Ticker로 프레임 애니메이션 실행
-  let progress = 0;
+    function createCirclePathD(cx, cy, r, time, phase) {
+      const wave = Math.sin(time + phase) * 3.5;
+      const currentR = r + wave;
+      const k = currentR * 0.552284749831;
 
-  gsap.ticker.add(() => {
-    progress += 0.02;
+      return `
+        M ${cx} ${cy - currentR}
+        C ${cx + k} ${cy - currentR}, ${cx + currentR} ${cy - k}, ${cx + currentR} ${cy}
+        C ${cx + currentR} ${cy + k}, ${cx + k} ${cy + currentR}, ${cx} ${cy + currentR}
+        C ${cx - k} ${cy + currentR}, ${cx - currentR} ${cy + k}, ${cx - currentR} ${cy}
+        C ${cx - currentR} ${cy - k}, ${cx - k} ${cy - currentR}, ${cx} ${cy - currentR}
+        Z
+      `;
+    }
 
-    paths.forEach((p) => {
-      const dAttr = createCirclePathD(
-        center,
-        center,
-        baseRadius + p.radiusOffset,
-        progress,
-        p.phaseOffset
-      );
-      
-      // SVG path 속성 직접 업데이트
-      p.element.setAttribute("d", dAttr);
+    let progress = 0;
+    gsap.ticker.add(() => {
+      progress += 0.02;
+      paths.forEach((p) => {
+        const dAttr = createCirclePathD(
+          center,
+          center,
+          baseRadius + p.radiusOffset,
+          progress,
+          p.phaseOffset
+        );
+        p.element.setAttribute("d", dAttr);
+      });
     });
   });
+
+  // -------------------------------------------------------------
+  // 2. 선(Lines) - 정삼각형 회전 구조 (#linesCodePenGroup)
+  // -------------------------------------------------------------
+  const linesGroup = document.getElementById("linesCodePenGroup");
+  if (linesGroup) {
+    const numTriangles = 30;
+    const center = 400;
+    const baseSize = 220;
+    const trianglePaths = [];
+
+    for (let i = 0; i < numTriangles; i++) {
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("stroke-opacity", 0.3 + (i / numTriangles) * 0.6);
+      linesGroup.appendChild(path);
+      trianglePaths.push(path);
+    }
+
+    let time = 0;
+
+    gsap.ticker.add(() => {
+      time += 0.015;
+      const wave = (Math.sin(time) + 1) / 2;
+
+      trianglePaths.forEach((path, i) => {
+        const indexFactor = i / numTriangles;
+        const rotationOffset = indexFactor * wave * (Math.PI * 0.65);
+        const scale = 1 - (indexFactor * wave * 0.45);
+
+        const vertices = [];
+        for (let j = 0; j < 3; j++) {
+          const angle = -Math.PI / 2 + (j * (Math.PI * 2) / 3) + rotationOffset;
+          const r = baseSize * scale;
+          const x = center + Math.cos(angle) * r;
+          const y = center + Math.sin(angle) * r;
+          vertices.push({ x, y });
+        }
+
+        const d = `M ${vertices[0].x.toFixed(2)} ${vertices[0].y.toFixed(2)} ` +
+                  `L ${vertices[1].x.toFixed(2)} ${vertices[1].y.toFixed(2)} ` +
+                  `L ${vertices[2].x.toFixed(2)} ${vertices[2].y.toFixed(2)} Z`;
+
+        path.setAttribute("d", d);
+      });
+    });
+  }
+
+  // -------------------------------------------------------------
+  // 3. 연결(Connections) - 물결 SVG 파동 (#connectionsCodePenGroup)
+  // -------------------------------------------------------------
+  const connectionsGroup = document.getElementById("connectionsCodePenGroup");
+  if (connectionsGroup) {
+    const lineCount = 35;
+    const pointsPerLine = 100;
+    const paths = [];
+
+    // viewBox 좌표계 기준 (800x800)
+    const width = 800;
+    const height = 800;
+    const centerY = height / 2;
+
+    for (let i = 0; i < lineCount; i++) {
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      const opacity = 0.15 + (i / lineCount) * 0.45;
+
+      path.setAttribute("fill", "none");
+      path.setAttribute("stroke", "currentColor");
+      path.setAttribute("stroke-width", "1.2");
+      path.setAttribute("stroke-opacity", opacity);
+
+      connectionsGroup.appendChild(path);
+      paths.push(path);
+    }
+
+    let time = 0;
+
+    gsap.ticker.add(() => {
+      time += 0.01;
+
+      for (let i = 0; i < lineCount; i++) {
+        const lineOffset = i * 0.08;
+        let d = "";
+
+        for (let j = 0; j <= pointsPerLine; j++) {
+          const progress = j / pointsPerLine;
+          const x = progress * width;
+
+          const angle = progress * Math.PI * 4 + time + lineOffset;
+          const amplitude = Math.sin(progress * Math.PI) * 160;
+          const y = centerY + Math.sin(angle) * amplitude * Math.cos(time * 0.5 + lineOffset);
+
+          if (j === 0) {
+            d += `M ${x.toFixed(1)} ${y.toFixed(1)}`;
+          } else {
+            d += ` L ${x.toFixed(1)} ${y.toFixed(1)}`;
+          }
+        }
+
+        paths[i].setAttribute("d", d);
+      }
+    });
+  }
 });
 
+// -------------------------------------------------------------
+// 4. jQuery 확장 및 스크롤 로더 제어
+// -------------------------------------------------------------
+$.fn.addActive = function() {
+  var winTop = $(window).scrollTop();
+  var winBottom = winTop + $(window).height();
 
-const g = document.querySelector('g')
-const path = document.querySelector('path')
+  return this.each(function() {
+    var $el = $(this);
+    var elTop = $el.offset().top;
+    var triggerPoint = winBottom - ($el.outerHeight() * 0.2); 
 
-for (let i=0; i<50; i++){
-  const clone = path.cloneNode()
-  g.append(clone)
-}
+    if (elTop < triggerPoint) {
+      $el.addClass('active');
+    }
+  });
+};
 
-const spread = gsap.timeline({paused:true})
-.to(g, { svgOrigin:'5 5.5', rotate:-180 })
-.to('path', {
-  svgOrigin:'5 5.5',
-  rotate:-180,
-  scale:0.15,
-  attr:{'stroke-width':0},
-  ease:'power1.in',
-  stagger:{ amount:.5, ease:'sine.in' }
-}, 0)
+var loader = {
+  $html: null,
+  activeFn: function() {
+    $(window).on('scroll.scrollEffect', function() {
+      $('.scrollEffect').addActive();
+      $('.dashed_wrap, .contactNumber').addActive();
+      $('[class^=figure]').addActive();
+      $('.imgEffect').addActive();
+      $('.mainFullArea').addActive();
+      $('.process_wrap .dash').addActive();
+      $('.onFrame').addActive();
+    }).trigger('scroll.scrollEffect');
+  },
+  init: function() {
+    var $t = this,
+        url = document.location.href,
+        urlFlag = url.indexOf('pc/main'),
+        urlFlag2 = url.indexOf('pc/projects/20'),
+        urlFlag3 = url.indexOf('?preload=0');
 
-const tl = gsap.to(spread, {
-  duration:6,
-  ease:'power2.inOut',
-  progress:0.5,
-  yoyo:true,
-  repeat:-1
-})
+    $t.$html = '<div id="preloader"><span>Loading...</span></div>';
 
-gsap.set('rect', {rotate:45, svgOrigin:'5 5'})
-gsap.set('.svg-container.line svg', {opacity:1})
+    if (urlFlag === -1 && urlFlag2 === -1 && urlFlag3 === -1) {
+      if ($("#preloader").length === 0) {
+        $("body").prepend($t.$html);
+      }
+      setTimeout(function() {
+        $("#preloader").fadeOut(function() {
+          $t.activeFn();
+        });
+      }, 1000);
+    } else {
+      $t.activeFn();
+    }
+  }
+};
 
-window.onclick =()=> gsap.to(tl, {timeScale:(tl.isActive()?0:1)});
+$(document).ready(function() {
+  loader.init();
+});
