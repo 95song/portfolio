@@ -251,18 +251,27 @@ $(window).on('scroll resize', function() {
     }
   }
 
-  // 2. Section 2 타이틀 제어 (#section2 스크롤 시 화면 중앙 30%에 도달하면 fixed로 변경)
+  // 2. Section 2 타이틀 제어 (#section2 영역 종료 시 is-absolute-bottom 처리하여 Section 3 침범 방지)
   var $sec2 = $('#section2');
   var $title2 = $('#is-fixed2');
 
   if ($sec2.length && $title2.length) {
     var sec2Top = $sec2.offset().top;
-    var sec2Target = sec2Top - (windowHeight * 0.3); // 화면 중앙 30% 위치 연산
+    var sec2Height = $sec2.outerHeight();
+    var targetTop2 = windowHeight * 0.3; // 화면 30% 지점
 
-    if (scrollTop >= sec2Target) {
-      $title2.addClass('is-fixed');
+    var fixedStart2 = sec2Top - targetTop2;
+    var fixedEnd2 = sec2Top + sec2Height - $title2.outerHeight() - targetTop2;
+
+    if (scrollTop < fixedStart2) {
+      // 고정 시작 전: absolute 기본 위치
+      $title2.removeClass('is-fixed is-absolute-bottom');
+    } else if (scrollTop >= fixedStart2 && scrollTop < fixedEnd2) {
+      // 화면 30% 위치에 fixed 고정
+      $title2.addClass('is-fixed').removeClass('is-absolute-bottom');
     } else {
-      $title2.removeClass('is-fixed');
+      // Section 2 영역이 끝나면 하단에 붙어 자연스럽게 위로 밀려 올라감
+      $title2.removeClass('is-fixed').addClass('is-absolute-bottom');
     }
   }
 }).trigger('scroll');

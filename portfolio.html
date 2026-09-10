@@ -14,12 +14,11 @@
 <link rel="shortcut icon" href="resources/img/common/favicon.png" type="image/x-icon">
 
 <!-- 기본 css -->
-<link rel="stylesheet" href="resources/css/swiper.min.css"> 
+<link rel="stylesheet" href="resources/css/common.css">
+<link rel="stylesheet" href="resources/css/portfolio.css">
 <link rel="stylesheet" type="text/css" href="resources/css/menu.css">
 <link rel="stylesheet" type="text/css" href="resources/css/jauery.fullpage.css">
-<link rel="stylesheet" type="text/css" href="resources/css/theartpixel.css">
-<link rel="stylesheet" href="resources/css/common.css">
-<link rel="stylesheet" href="resources/css/main.css"> 
+<link rel="stylesheet" href="resources/css/swiper.min.css"> 
 <link rel="stylesheet" href="resources/css/form.css">
 <link rel="stylesheet" type="text/css" href="resources/css/pad.css">
 <link rel="stylesheet" href="resources/css/mobile.css">
@@ -28,33 +27,19 @@
 <!-- 웹폰트 -->
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
-    
 <!-- 1. jQuery를 먼저 로드 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- 2. fullPage 필수 파일들 -->
+
 <!-- 3. 그 다음 나머지 스크립트들 -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
 <script type="text/javascript" src="resources/js/min.js"></script>
 <script type="text/javascript" src="resources/js/gnb-main.js"></script>
 <script type="text/javascript" src="resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="resources/js/tabcontent.js"></script>
 <script src="resources/js/jquery.mousewheel.min.js"></script>
-
-  <!-- Google Fonts: Inter Tight -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&display=swap" rel="stylesheet">
-
-  <!-- 1. importmap은 최상단에 선언 -->
-<script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
-    }
-  </script>
+<script src="resources/js/profile.js"></script>
 
 </head>
 <body class="main">
@@ -111,10 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </h1>
                  <div class="gnb"> 
                     <ul>
-                        
-                        <li><a href="index.html" class="depth1">PORTFOLIO<span class="line"></span></a>
-                        </li>                                       
-                                
+                        <li>
+                            <a href="index.html" class="depth1">PORTFOLIO<span class="line"></span></a>
+                        </li>                                     
                     </ul>
     
                 </div>
@@ -194,30 +178,88 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		<section class="section" id="section1">
             
-			<div class="main_wrap">
-
-                
-<canvas id="scene"></canvas>
-
-  <h1 id="headline" class="sr-only">
-    <span>SONG EUNSUN</span>
-    <span>Designer</span>
-    <!-- <span>Designer</span> -->
-  </h1>
-
-<div class="meta">
-    <span>2026 - Update</span>
-    <button type="button" class="main-btn">
-        <a href="profile.html"><span>정보 바로가기</span></a>
-    </button>
-  </div>
-
-  <!-- 2. 자바스크립트 연결 시 type="module" 필수 -->
-  <script type="module" src="resources/js/main.js"></script>
-                
-			
+			<div class="portfolio_wrap">
+                <div class="portfolio-list">
+                    <div class="portfolio-title">
+                        <span>Portfolio</span>
+                    </div>
+                    <div class="portfolio-menu">
+                        <div class="menu-ul">
+                            <div class="menu-li">
+                                <span>UX/UI</span>
+                            </div>
+                            <div class="menu-li">
+                                <span>편집</span> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-group">
+                        <div class="port-box">
+                            <a href="port-1.html">
+                                <div class="port-img">
+                                    <img src="resources/img/common/port-1.png">
+                                </div>
+                                <div class="port-blur">
+                                    <div class="port-blur-text">
+                                        <div class="port-title">
+                                            Tracker
+                                        </div>
+                                        <div class="text-black">
+                                            건강영향 모니터링 플랫폼 리뉴얼
+                                        </div>
+                                        <div class="tag-group">
+                                            <div class="tag-black">Design</div>
+                                            <div class="tag-black">Publishing</div>
+                                        </div>
+                                    </div>
+                               </div>
+                            </a>
+                        </div>
+                        <div class="port-box">
+                            <div class="port-img">
+                                <img src="resources/img/common/port-1.png">
+                            </div>
+                            <div class="port-blur">
+                                <div class="port-blur-text">
+                                    <div class="port-title">
+                                        Tracker
+                                    </div>
+                                    <div class="text-black">
+                                        건강영향 모니터링 플랫폼 리뉴얼
+                                    </div>
+                                    <div class="tag-group">
+                                        <div class="tag-black">Design</div>
+                                        <div class="tag-black">Publishing</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="port-box">
+                            <div class="port-img">
+                                <img src="resources/img/common/port-1.png">
+                            </div>
+                            <div class="port-blur">
+                                <div class="port-blur-text">
+                                    <div class="port-title">
+                                        Tracker
+                                    </div>
+                                    <div class="text-black">
+                                        건강영향 모니터링 플랫폼 리뉴얼
+                                    </div>
+                                    <div class="tag-group">
+                                        <div class="tag-black">Design</div>
+                                        <div class="tag-black">Publishing</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 		    </div>
+
         </section>
+
+	
 
     </div>
 </div>

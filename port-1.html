@@ -14,12 +14,11 @@
 <link rel="shortcut icon" href="resources/img/common/favicon.png" type="image/x-icon">
 
 <!-- 기본 css -->
-<link rel="stylesheet" href="resources/css/swiper.min.css"> 
+<link rel="stylesheet" href="resources/css/common.css">
+<link rel="stylesheet" href="resources/css/port-1.css">
 <link rel="stylesheet" type="text/css" href="resources/css/menu.css">
 <link rel="stylesheet" type="text/css" href="resources/css/jauery.fullpage.css">
-<link rel="stylesheet" type="text/css" href="resources/css/theartpixel.css">
-<link rel="stylesheet" href="resources/css/common.css">
-<link rel="stylesheet" href="resources/css/main.css"> 
+<link rel="stylesheet" href="resources/css/swiper.min.css"> 
 <link rel="stylesheet" href="resources/css/form.css">
 <link rel="stylesheet" type="text/css" href="resources/css/pad.css">
 <link rel="stylesheet" href="resources/css/mobile.css">
@@ -28,36 +27,22 @@
 <!-- 웹폰트 -->
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
 
-    
 <!-- 1. jQuery를 먼저 로드 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<!-- 2. fullPage 필수 파일들 -->
+
 <!-- 3. 그 다음 나머지 스크립트들 -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
 <script type="text/javascript" src="resources/js/min.js"></script>
 <script type="text/javascript" src="resources/js/gnb-main.js"></script>
 <script type="text/javascript" src="resources/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="resources/js/tabcontent.js"></script>
 <script src="resources/js/jquery.mousewheel.min.js"></script>
-
-  <!-- Google Fonts: Inter Tight -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;900&display=swap" rel="stylesheet">
-
-  <!-- 1. importmap은 최상단에 선언 -->
-<script type="importmap">
-    {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
-    }
-  </script>
+<script src="resources/js/profile.js"></script>
 
 </head>
-<body class="main">
+<body class="main" style="background-color: #fff;">
 
 <!-- header 시작 -->
 <div class="cursor-follower"></div>
@@ -111,10 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </h1>
                  <div class="gnb"> 
                     <ul>
-                        
-                        <li><a href="index.html" class="depth1">PORTFOLIO<span class="line"></span></a>
-                        </li>                                       
-                                
+                        <li>
+                            <a href="index.html" class="depth1">PORTFOLIO<span class="line"></span></a>
+                        </li>                                     
                     </ul>
     
                 </div>
@@ -192,32 +176,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	<div id="fullpage">
 
-		<section class="section" id="section1">
-            
-			<div class="main_wrap">
-
+		<section class="section" id="port">
+			<div class="portfolio_wrap">
+                <div class="port-main">
+                    <div class="main-title">Tracker</div>
+                    <div class="port-gif"></div>
+                </div>
                 
-<canvas id="scene"></canvas>
-
-  <h1 id="headline" class="sr-only">
-    <span>SONG EUNSUN</span>
-    <span>Designer</span>
-    <!-- <span>Designer</span> -->
-  </h1>
-
-<div class="meta">
-    <span>2026 - Update</span>
-    <button type="button" class="main-btn">
-        <a href="profile.html"><span>정보 바로가기</span></a>
-    </button>
-  </div>
-
-  <!-- 2. 자바스크립트 연결 시 type="module" 필수 -->
-  <script type="module" src="resources/js/main.js"></script>
-                
-			
 		    </div>
         </section>
+
+        <section class="section">
+            <div class="overview">
+                <div class="overview-top">
+                    <div class="port-tittle-gray">Overview</div>
+                    <div class="port-title port-1">취약계층 맞춤형 환경유해인자 노출영향 관리 서비스</div>
+                    <div class="port-coment">Tracker는 환경 오염물질이나 유해 물질에 취약한 사람들이 언제 어디서든 내 몸 상태와 주변 위험 환경을 실시간으로 확인하고,<br>아토피·천식 같은 환경성 질환을 사전에 예방 및 관리할 수 있는 맞춤형 건강 관리 시스템 서비스입니다.<br>Tracker를 통해 기존 의료기기 수준의 정확한 건강 데이터를 일반인도 스마트폰과 웨어러블 기기로 손쉽게 관리할 수 있도록 지원하고자 합니다.</div>
+                </div>
+                <div class="overview-bottom">
+                    <div class="overview-left">
+                        <div class="port-graph">
+                            <div class="port-t">기간</div>
+                            <div class="port-day">
+                                <div>2026. 07 ~ 2026. 07</div>
+                            </div>
+                        </div>
+                        <div class="port-graph">
+                            <div class="port-t">디자인</div>
+                            <div class="graph-div">
+                                <div class="port-percent per-100"></div>
+                                <div>100%</div>
+                            </div>
+                        </div>
+                        <div class="port-graph">
+                            <div class="port-t">퍼블리싱</div>
+                            <div class="graph-div">
+                                <div class="port-percent per-100"></div>
+                                <div>100%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-right">
+                        <button class="direct-btn">
+                            <a href="">어플 바로가기</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="height: 100vh"></div>
+        </section>
+
 
     </div>
 </div>

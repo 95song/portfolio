@@ -1,12 +1,11 @@
 .section{
   position: relative;
-  padding-bottom: 19.525rem;
 }
 #section1{
   padding-bottom: 25.8457rem;
 }
 #section2{
-  /* padding-top: 30rem; */
+  height: 108.8rem;
 }
 #is-fixed1{
   padding-bottom: 28.8457rem;
@@ -181,13 +180,8 @@
   stroke: #111111;
 }
 
-
-.profile-middle{
-  position: relative;
-}
-
 .profile-middle .profile-title {
-  top: auto;          /* top 30% 해제 */
+  top: auto;   
   width: 100%;
   color: #111111;
 }
@@ -211,9 +205,9 @@
 .history-list::before {
   content: "";
   position: absolute;
-  top: 3.4375rem; /* 55px */
-  width: 0.625rem; /* 10px */
-  height: 0.625rem; /* 10px */
+  top: 3.4375rem; 
+  width: 0.625rem; 
+  height: 0.625rem; 
   box-sizing: border-box;
   border-radius: 50%;
   background: #ff3d3285;
@@ -224,22 +218,22 @@
 .history-list::after {
   content: "";
   position: absolute;
-  top: 3.0625rem; /* 49px */
-  width: 1.375rem; /* 22px */
-  height: 1.375rem; /* 22px */
+  top: 3.0625rem; 
+  width: 1.375rem; 
+  height: 1.375rem; 
   box-sizing: border-box;
   border-radius: 50%;
   background: #ff3d3285;
-  border: 0.0625rem solid #ff3d3285; /* 1px */
+  border: 0.0625rem solid #ff3d3285;
   transform: translateX(-50%);
 }
 
 .history-list > li {
   text-align: left;
   position: relative;
-  width: calc(100% - 4.375rem); /* 70px */
+  width: calc(100% - 4.375rem); 
   margin-left: auto;
-  padding-bottom: 4.875rem; /* 110px */
+  padding-bottom: 4.875rem;
 }
 
 .history-list > li.on::before {
@@ -250,9 +244,9 @@
 .history-list > li::before {
   content: '';
   position: absolute;
-  top: 0.875rem; /* 14px */
-  left: -4.375rem; /* -70px */
-  width: 0.125rem; /* 2px */
+  top: 0.875rem;
+  left: -4.375rem; 
+  width: 0.125rem;
   height: 0;
   background: #ff3d3285;
   transition: 0.5s;
@@ -260,11 +254,11 @@
 
 .history-list > li:first-of-type::before {
   height: 0;
-  top: -4.375rem; /* -70px */
+  top: -4.375rem; 
 }
 
 .history-list > li:nth-of-type(2n)::before {
-  left: -4.4375rem; /* -71px */
+  left: -4.4375rem; 
 }
 
 .history-list > li > span {
@@ -272,18 +266,18 @@
   display: inline-block;
   vertical-align: top;
   font-weight: bold;
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
   color: #111111;
-  margin-bottom: 1.25rem; /* 20px */
+  margin-bottom: 1.25rem;
 }
 
 .history-list > li > span::before {
   content: "";
   position: absolute;
-  top: 0.6875rem; /* 11px */
-  left: -4.6875rem; /* -75px */
-  width: 0.625rem; /* 10px */
-  height: 0.625rem; /* 10px */
+  top: 0.6875rem;
+  left: -4.6875rem; 
+  width: 0.625rem;
+  height: 0.625rem; 
   box-sizing: border-box;
   border-radius: 50%;
   background: #ff3d3285;
@@ -293,32 +287,32 @@
 .history-list > li > span::after {
   content: "";
   position: absolute;
-  top: 0.3125rem; /* 5px */
-  left: -5.0625rem; /* -81px */
-  width: 1.375rem; /* 22px */
-  height: 1.375rem; /* 22px */
+  top: 0.3125rem; 
+  left: -5.0625rem; 
+  width: 1.375rem; 
+  height: 1.375rem; 
   box-sizing: border-box;
   border-radius: 50%;
   background: #ff3d3285;
-  border: 0.0625rem solid #ff3d3285; /* 1px */
+  border: 0.0625rem solid #ff3d3285;
   transform: scale(0);
   transition: 0.4s;
 }
 
 .history-list > li > ul > li {
-  padding-left: 2.5rem; /* 40px */
+  padding-left: 2.5rem; 
   position: relative;
-  font-size: 1.1875rem; /* 19px */
-  margin-bottom: 1rem; /* 16px */
+  font-size: 1.1875rem; 
+  margin-bottom: 1rem; 
   vertical-align: middle;
 }
 
 .history-list > li > ul > li > span {
   position: absolute;
-  top: 0.0625rem; /* 1px */
+  top: 0.0625rem;
   left: 0;
   font-weight: 500;
-  font-size: 1.1875rem; /* 19px */
+  font-size: 1.1875rem;
   color: #111111;
   vertical-align: middle;
 }
@@ -343,9 +337,9 @@ ul:after {
 .history-list > li > .line-turn {
   position: absolute;
   bottom: 0;
-  left: -4.375rem; /* -70px 위치 */
+  left: -4.375rem;
   width: 0;
-  height: 0.125rem; /* 2px 가로선 */
+  height: 0.125rem;
   background: #ff3d3285;
   transition: width 0.5s ease;
   pointer-events: none;
@@ -357,18 +351,16 @@ ul:after {
   position: absolute;
   top: 0;
   left: 100%;
-  width: 0.125rem; /* 2px */
+  width: 0.125rem; 
   height: 0;
   background: #ff3d3285;
-  transition: height 0.5s ease 0.5s; /* 가로선이 다 그어진 후 0.5초 뒤 아래로 실행 */
+  transition: height 0.5s ease 0.5s;
 }
 
 /* 활성화(on) 되었을 때 선 이동 효과 */
 .history-list > li.on > .line-turn {
   margin-bottom: -0.89rem;
-  width: 100%; /* 왼쪽으로 그려질 가로 길이 (필요에 맞게 조정 가능) */
-  /* left: calc(-4.375rem - 30vw);  */
-  /* 왼쪽 방향으로 늘어남 */
+  width: 100%;
 }
 .history-list > li > span.line-turn::before{
   display: none;
@@ -380,13 +372,8 @@ ul:after {
   padding-right: 4.4375rem;
   padding-bottom: 0 !important;
 }
-.history-skill > ul{
-  position: relative;
-  width: 11rem;
-  left: calc(100% - 6.923rem);
-}
 .history-list > li.on > .line-turn::after {
-  height: 11rem; /* 아래로 계속 이어지는 수직선 길이 */
+  height: 11rem;
 }
 .history-list > li.history-skill:nth-of-type(2n)::before {
   left: calc(100%);
@@ -400,20 +387,195 @@ ul:after {
 .history-list > li.history-skill > span::after{
   left: 6.33rem;
 }
-.history-list > li.history-skill > ul > li{
-  width: 11rem;
-  text-align: left;
-}
 
 .history-list > li.history-skill > ul > li{
   margin-bottom: 2.2rem;
+  padding-left: 0;
+}
+.history-list > li.history-skill > span::before {
+    content: "";
+    position: absolute;
+    top: 0.6875rem;
+    left: -4.6875rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    box-sizing: border-box;
+    border-radius: 50%;
+    background: #ff3d3285;
+    z-index: 1;
+}
+
+
+
+
+/******* 스킬 */
+.history-list > li.history-skill > ul > li div.skill{
+  display: flex;
+}
+.skill-left{
+  display: flex;
+  align-self: center;
+  width: 11rem;
+}
+.skill-left span{
+  font-weight: 500;
+  font-size: 1.1875rem;
+  color: #111111;
+  margin-left: 0.66rem;
+  text-align: left;
+  width: 100%;
+}
+.skill-right{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.skill-data{
+  width: 100%;
+  background-color: #b6b6b6;
+  height: 1rem;
+}
+.skill-right span{
+  margin-left: 0.66rem;
+}
+.skill-bar{
+  background-color: #FF3D32;
+  height: 1rem;
+}
+.skill-bar#skill-1{
+  width: 95%;
+}
+.skill-bar#skill-2{
+  width: 90%;
+}
+.skill-bar#skill-3{
+  width: 93%;
+}
+.skill-bar#skill-4{
+  width: 82%;
+}
+.skill-bar#skill-5{
+  width: 92%;
+}
+.skill-bar#skill-6{
+  width: 95%;
+}
+.skill-bar#skill-7{
+  width: 95%;
+}
+.skill-bar#skill-8{
+  width: 85%;
+}
+.skill-bar#skill-9{
+  width: 72%;
 }
 
 
 /******* 포트폴리오 */
 .profile-bottom{
   position: relative;
+  padding: 0 5.25rem;
 }
 .profile-port{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.profile-port span{
+  display: block;
+  font-size: 5vw;
+  line-height: 5.5vw;
+  font-weight: 700;
+  color: #111111;
+  margin-top: 8rem;
+}
+
+.portfolio-container{
+  margin-top: 6.25rem;
+  position: relative;
+}
+.portfolio-direct{
   position: absolute;
+  top: calc(50% - 3vw);
+  left: calc(50% - 7vw);
+}
+.portfolio-direct button{
+  width: 14vw;
+  height: 6vw;
+  background-color: unset;
+  border: 0px;
+}
+.portfolio-direct button a{
+  display: inline-grid;
+  text-align: left;
+  font-size: 2.5vw;
+  font-weight: 700;
+}
+.portfolio-direct button:hover a span{
+  color: #FF3D32;
+}
+.portfolio-direct button:hover a span:first-child{
+  color: #111111;
+}
+
+/* SVG 기본 설정 */
+button svg {
+  color: #111111;
+  width: 2.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+  overflow: visible;
+}
+
+/* 몸통(선) 설정: 왼쪽(2px)을 기준점으로 확대 */
+button svg .arrow-line {
+  transform-origin: 2px 12px;
+  transition: transform 0.3s ease;
+}
+
+/* 머리(화살표 팁) 설정 */
+button svg .arrow-head {
+  transition: transform 0.3s ease;
+}
+
+/* hover 시 색상 변경 */
+button:hover svg {
+  color: #FF3D32;
+}
+
+/* 1. 몸통 길이를 가로로 1.8배 늘림 */
+button:hover svg .arrow-line {
+  transform: scaleX(1.8);
+}
+
+/* 2. 머리를 늘어난 만큼 우측으로 이동 */
+button:hover svg .arrow-head {
+  transform: translateX(11px);
+}
+
+
+.portfolio-list{
+  width: 33%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0.667rem;
+}
+.portfolio-list.bottom{
+  vertical-align: bottom;
+}
+.portfolio-list .img-box{
+  border-radius: 1.04167vw;
+  overflow: hidden;
+}
+.portfolio-list .img-box#img-box-1{
+  aspect-ratio: 3 / 4;
+}
+.portfolio-list .img-box#img-box-2{
+  aspect-ratio: 1 / 1;
+}
+.portfolio-list .img-box img{
+  border-radius: 1.04167vw;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

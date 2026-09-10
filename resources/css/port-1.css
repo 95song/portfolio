@@ -1,0 +1,102 @@
+.section#port{
+    height: 100vh;
+}
+.section#port .portfolio_wrap{
+    padding: 0;
+}
+
+.portfolio_wrap{
+    width: 100%;
+    height: 100%;
+}
+.port-main{
+    width: 100%;
+    height: 100%;
+    background-color: #8FC3E8;
+}
+.main-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #ffffff;
+    font-size: 10rem;
+    font-weight: 700;
+}
+.port-gif{
+    background-image: url(/resources/img/port/port-1-bg.gif);
+    background-repeat: no-repeat;
+    background-size: 45rem;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.overview{
+    padding: 0 5.25rem;
+}
+.overview-top{
+    margin-top: 5.25rem;
+}
+.port-tittle-gray{
+    font-size: 1.25rem;
+    color: #969696;
+    margin-bottom: 3rem;
+}
+.port-title{
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.port-title.port-1{
+    color: #8FC3E8;
+}
+.port-coment{
+    font-size: 1.25rem;
+    line-height: 1.75;
+}
+.overview-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 3.75rem;
+}
+.port-graph{
+    display: flex;
+    width: 18.75rem;
+    height: 100%;
+    padding: 0.5rem 0;
+}
+
+.port-percent{
+  height: 1rem;
+  background-color: #111111;
+  margin-right: 0.5rem;
+}
+.port-percent.per-100{
+  width: 100%;
+}
+.port-percent.per-95{
+  width: 95%;
+}
+
+.port-t{
+    width: 4rem;
+}
+.port-day{
+    width: 100%;
+}
+.port-day div{
+    text-align: right;
+}
+.graph-div{
+    display: flex;
+    width: 14.75rem;
+    align-items: center;
+}
+.direct-btn{
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    border: 1px solid #969696;
+    border-radius: 1000px;
+    padding: 0.7rem 1.5rem;
+}
