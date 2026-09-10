@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="끊임없이 새로운 꿈을 꾸며 발전하는 디자이너">
+<meta name="keywords" content="PortFolioㅣUX/UIㅣ디자인ㅣ뚠뚠">
+
+<title>PortFolio</title>
+
+<!-- 파비콘 -->
+<link rel="shortcut icon" href="resources/img/common/favicon.png" type="image/x-icon">
+
+<!-- 기본 css -->
+<link rel="stylesheet" href="resources/css/common.css">
+<link rel="stylesheet" href="resources/css/port-1.css">
+<link rel="stylesheet" type="text/css" href="resources/css/menu.css">
+<link rel="stylesheet" type="text/css" href="resources/css/jauery.fullpage.css">
+<link rel="stylesheet" href="resources/css/swiper.min.css"> 
+<link rel="stylesheet" href="resources/css/form.css">
+<link rel="stylesheet" type="text/css" href="resources/css/pad.css">
+<link rel="stylesheet" href="resources/css/mobile.css">
+
+
+<!-- 웹폰트 -->
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+<!-- 1. jQuery를 먼저 로드 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<!-- 3. 그 다음 나머지 스크립트들 -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ScrollTrigger/1.0.5/ScrollTrigger.min.js"></script>
+<script type="text/javascript" src="resources/js/min.js"></script>
+<script type="text/javascript" src="resources/js/gnb-main.js"></script>
+<script type="text/javascript" src="resources/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="resources/js/tabcontent.js"></script>
+<script src="resources/js/jquery.mousewheel.min.js"></script>
+<script src="resources/js/profile.js"></script>
+
+</head>
+<body class="main" style="background-color: #fff;">
+
+<!-- header 시작 -->
+<div class="cursor-follower"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const follower = document.querySelector('.cursor-follower');
+
+  // 목표 위치 (실제 마우스 좌표)
+  let targetX = 0;
+  let targetY = 0;
+
+  // 현재 동그라미의 위치
+  let currentX = 0;
+  let currentY = 0;
+
+  // 마우스 이동 시 목표 좌표만 업데이트
+  window.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+  });
+
+  // 부드럽게 추적하는 애니메이션 함수
+  function render() {
+    // 0.1(10%) 비율만큼 매 프레임마다 목표 지점으로 부드럽게 이동
+    // 숫자가 작을수록(예: 0.05) 더 천천히/뒤늦게 따라오고, 크면(예: 0.2) 빠르게 따라옵니다.
+    const speed = 0.1;
+
+    currentX += (targetX - currentX) * speed;
+    currentY += (targetY - currentY) * speed;
+
+    follower.style.left = `${currentX}px`;
+    follower.style.top = `${currentY}px`;
+
+    // 다음 프레임 요청 (무한 루프)
+    requestAnimationFrame(render);
+  }
+
+  // 애니메이션 시작
+  render();
+});
+</script>
+
+<header>
+    <!--  -->
+            <div class="navi">
+
+                 <h1 id="logo">
+                    <a >
+                    </a>
+                </h1>
+                 <div class="gnb"> 
+                    <ul>
+                        <li>
+                            <a href="index.html" class="depth1">PORTFOLIO<span class="line"></span></a>
+                        </li>                                     
+                    </ul>
+    
+                </div>
+                
+                
+            </div>
+    
+        </header>
+                
+    
+    <!-- 네비게이션 바 -->
+                    
+        <div class="ham sitemap-open-btn btn">						
+             <span class="bar1"></span>
+             <span class="bar2"></span>
+             <span class="bar3"></span>
+        </div>
+    
+    <!-- 네비게이션 -->
+            
+        <div class="site_wrap">
+            <div class="site_map">
+                <div>
+                    <ul>
+                        <li class="sitemap_dep1">
+                            <a href="profile.html">
+                                <span>ABOUT</span><span>ABOUT</span>
+                            </a>
+                        </li>
+                        <li class="sitemap_dep1">
+                            <a href="javascript:void(0);">
+                                <span>Portfolio</span><span>Portfolio</span>
+                            </a>
+                            <ul class="sitemap_dep2">
+                                <li><a href="portfolio.html">UX/UI</a></li>
+                                <li><a href="portfolio.html">편집</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <h6> © 2026 EUNSUN .ALL RIGHTS RESERVED</h6>
+                </div>
+            </div>
+        </div>
+        <div class="site_bg"></div>
+        <script>
+		
+            document.addEventListener('DOMContentLoaded', function () {
+                const accordionToggles = document.querySelectorAll('.sitemap_dep1 > a');
+
+                accordionToggles.forEach(toggle => {
+                    toggle.addEventListener('click', function () {
+                        const parentItem = this.parentElement;
+                        
+                        // 이미 열려 있는 다른 아코디언 메뉴 닫기
+                        document.querySelectorAll('.sitemap_dep1').forEach(item => {
+                            if (item !== parentItem) {
+                                item.classList.remove('active');
+                            }
+                        });
+
+                        // 클릭한 항목 토글
+                        parentItem.classList.toggle('active');
+                    });
+                });
+            });
+		
+		</script>
+
+    
+    <!-- header 끝 -->
+
+<div class="all_wrap">
+	
+
+	<div id="fullpage">
+
+		<section class="section" id="port">
+			<div class="portfolio_wrap">
+                <div class="port-main">
+                    <img class="port-4-bg" src="resources/img/port/port-4-bg.png">
+                </div>
+                
+		    </div>
+        </section>
+
+        <section class="section">
+            <div class="overview">
+                <div class="overview-top">
+                    <div class="port-tittle-gray">Overview</div>
+                    <div class="port-title port-4">금화C&E 홈페이지</div>
+                    <div class="port-coment">
+                        2000년도 초에 만들어진 (주)금화C&E의 초창기 홈페이지 전체 리뉴얼 프로젝트 입니다.<br>
+                        기존의 사용자 UI가 고려되지 않은 불편한 디자인에서 신뢰도와 정확한 정보 전달을 중심적으로 리뉴얼 디자인을 진행했습니다.<br>
+                        일상에 노출되는 홈페이지가 아닌 거래처 위주로 보는 홈페이지기에 가능한 깔끔하고 기업이 원하는 컬러에 맞춰 리뉴얼 됐습니다.</div>
+                </div>
+                <div class="overview-bottom">
+                    <div class="overview-left">
+                        <div class="port-graph">
+                            <div class="port-t">기간</div>
+                            <div class="port-day">
+                                <div>2024. 07 ~ 2024. 10</div>
+                            </div>
+                        </div>
+                        <div class="port-graph">
+                            <div class="port-t">디자인</div>
+                            <div class="graph-div">
+                                <div class="port-percent per-100"></div>
+                                <div>100%</div>
+                            </div>
+                        </div>
+                        <div class="port-graph">
+                            <div class="port-t">퍼블리싱</div>
+                            <div class="graph-div">
+                                <div class="port-percent per-100"></div>
+                                <div>100%</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview-right">
+                        <button class="direct-btn">
+                            <a href="https://www.geumhwacne.co.kr/main">홈페이지 바로가기</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div style="height: 100vh"></div>
+        </section>
+
+
+    </div>
+</div>
+	
+<!-- Swiper JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+<!-- -->
+
+
+</body>
+
+
+
+</html>    

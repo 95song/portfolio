@@ -50,6 +50,9 @@
 .port-title.port-1{
     color: #8FC3E8;
 }
+.port-title.port-4{
+    color: #ec811c;
+}
 .port-coment{
     font-size: 1.25rem;
     line-height: 1.75;
@@ -99,4 +102,11 @@
     border: 1px solid #969696;
     border-radius: 1000px;
     padding: 0.7rem 1.5rem;
+}
+
+
+.port-4-bg{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
