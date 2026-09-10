@@ -23,7 +23,7 @@
     font-weight: 700;
 }
 .port-gif{
-    background-image: url(/resources/img/port/port-1-bg.gif);
+    background-image: url(../img/port/port-1-bg.gif);
     background-repeat: no-repeat;
     background-size: 45rem;
     background-position: 50% 50%;
