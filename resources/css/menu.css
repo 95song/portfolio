@@ -98,16 +98,6 @@ body.main .navi .depth1 { color: #111111; }
 .right_navi { position: absolute; top: 0; bottom: 0; margin: auto; width: auto; height: 7.8125rem; right: 6.25rem; z-index: 1000; }
 /**/
 
-.top_fixed_wrap { position: absolute; height: 2.5rem; top: 0; bottom: 0; margin: auto; right: 8.75rem; z-index: 999; display: flex; justify-content: flex-end; }
-.top_open { display: flex; justify-content: flex-start; align-items: center; gap: 0.625rem; }
-.top_open>div:first-child { width: 34px; height: 34px; border-radius: 100%; background: #FF3D32 url(../img/common/open2.png) center no-repeat; transition: 0.3s; }
-.top_open h4 {font-size: 0.9375rem; line-height: 120%; font-weight: 400; color: #FF3D32; transition: 0.3s; }
-.top_open h4 b { font-weight: 600; }
-
-.navi.white .top_open>div:first-child { background: #fff url(../img/common/open.png) center no-repeat; }
-.navi.white .top_open h4 { color: #fff; }
-/* .navi.white.wh{ background: #00000040;} */
-
 .navi.over .top_open>div:first-child { background: #FF3D32 url(../img/common/open2.png) center no-repeat; }
 .navi.over .top_open h4 { color: #FF3D32; }
 

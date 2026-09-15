@@ -31,11 +31,11 @@
     height: 100%;
 }
 
-.overview{
-    padding: 0 5.25rem;
+.overview, .port-goal{
+    padding: 5.25rem;
 }
-.overview-top{
-    margin-top: 5.25rem;
+.port-goal{
+    text-align: center;
 }
 .port-tittle-gray{
     font-size: 1.25rem;
@@ -51,11 +51,13 @@
     color: #8FC3E8;
 }
 .port-title.port-4{
-    color: #ec811c;
+    color: #F28121;
 }
 .port-coment{
     font-size: 1.25rem;
     line-height: 1.75;
+    text-align: justify;
+    max-width: 1300px;
 }
 .overview-bottom{
     display: flex;
@@ -76,10 +78,13 @@
   margin-right: 0.5rem;
 }
 .port-percent.per-100{
-  width: 100%;
+    width: 100%;
 }
 .port-percent.per-95{
-  width: 95%;
+    width: 95%;
+}
+.port-percent.port-4{
+    background-color:#F28121
 }
 
 .port-t{
@@ -109,4 +114,86 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+}
+
+.port-half{
+    display: flex;
+}
+.task-group{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.task-list{
+    display: flex;
+    gap: 1.25rem;
+    border-radius: 30px;
+    border: 1px solid #969696;
+    padding: 2.25rem;
+}
+.task-icon{
+    width: 35px;
+    height: 35px;
+    fill: #969696;
+}
+.task-text{
+    font-size: 1.25rem;
+    line-height: 1.75;
+    text-align: justify;
+    color: #969696;
+}
+.goal-box{
+    width: 50%;
+}
+.goal-list{
+    width: 100%;
+    height: 100%;
+}
+
+.goal-img{
+    width: 100%;
+    height: 100%;
+}
+/* 금화C&E 로딩페이지 */
+.loading-page {
+    background: #fff;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #191654;
+}
+#svg {
+    height: 150px;
+    width: 150px;
+    stroke: #F28121;
+    fill-opacity: 0;
+    stroke-width: 2px;
+    stroke-dasharray: 4500;
+    animation: draw 17s ease;
+}
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 4500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.name-container {
+    height: 30px;
+    overflow: hidden;
+}
+.logo-name {
+    color: #F28121;
+    font-size: 20px;
+    letter-spacing: 12px;
+    text-transform: uppercase;
+    margin-left: 20px;
+    font-weight: bolder;
 }

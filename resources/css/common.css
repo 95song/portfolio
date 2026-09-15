@@ -3,6 +3,7 @@
    margin: 0;
   padding: 0;
   box-sizing: border-box;
+  word-break: keep-all;
 }
 
 /* 커서 따라다니는 동그라미 스타일 */
